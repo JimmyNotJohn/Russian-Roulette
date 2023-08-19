@@ -1,2 +1,2 @@
-# Russian-Roulette
-Play Russian Roulette!
+# Russian-Roulette By JimmyNotJohn is under A GNU v3.0
+
