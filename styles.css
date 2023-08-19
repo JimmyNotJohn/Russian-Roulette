@@ -1,0 +1,74 @@
+@font-face {
+    font-family:Semi-Casual;
+    src:url('Timeburner-xJB8.ttf')
+}
+body {
+    margin:0;
+    background-image: url('background.png');
+}
+title {
+    font-family:Semi-Casual;
+}
+h1 {
+    font-family:Semi-Casual;
+    width:100%;
+    text-align: center;
+    margin:0;
+    color:white;
+}
+.shoot {
+    width:200px;
+    padding-top:20px;
+    height:40px;
+    font-size:18px;
+    background-color:#d3d3d3;
+    border-radius:30px;
+    font-family:Semi-Casual;
+    color:black;
+    text-align:center;
+    margin:auto;
+    user-select: none;
+}
+
+.shoot:hover {
+    background-color:#c3c3c3;
+    cursor:pointer;
+}
+
+.shoot.active {
+    background-color: #a3a3a3;
+}
+.revolver {
+    width:200px;
+    margin:auto;
+    display:block;
+}
+.muzzleFlash {
+    position:absolute;
+    width:348px;
+
+}
+.message {
+    font-family: Semi-Casual;
+    font-size:20px;
+    padding-top:40px;
+    height:40px;
+    text-align:center;
+}
+.blackout {
+    width:100%;
+    height:100%;
+    background-color: black;
+    position:absolute;
+    opacity:0;
+    animation:0;
+    display:none;
+}
+@keyframes fadeOut {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
