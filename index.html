@@ -1,0 +1,105 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="styles.css"/>
+
+    <link rel="icon" href="icon.png"/>
+
+    <title>Russian Roulette</title>
+
+</head>
+
+<body id="body">
+
+    <div class="blackout"></div>
+
+    <div style="height:10px;"></div>
+
+    <h1>Play Russian Roulette.</h1>
+
+    <div style="height:160px;"></div>
+
+    <div class="shoot">
+        
+        <b>
+            Fire
+
+        </b>
+    
+        <script>
+
+            let button = document.querySelector(".shoot");
+            let header = document.querySelector("h1");
+            let randomization = 0;
+            let firingAudio = new Audio('gunFire.mp3');
+            let misfiringAudio = new Audio('gunMisfire.mp3');
+            let muzzleFlash = document.querySelector('.muzzleFlash');
+            let message = document.querySelector(".message");
+            let body = document.querySelector("#body");
+            let blackout = document.querySelector(".blackout");
+
+            button.addEventListener("mousedown",()=>{
+                randomization = Math.floor(Math.random() * (7-1) + 1);  
+                button.classList.add("active");
+                if (randomization !== 6) {
+
+                    //AUDIO
+                    if (misfiringAudio.paused === true) {
+                            misfiringAudio.play();
+                        } else {
+                            misfiringAudio.pause();
+                            misfiringAudio.currentTime = 0;
+                            misfiringAudio.play();
+                        }
+                } else {
+
+                    //AUDIO
+                    if (firingAudio.paused === true) {
+                        firingAudio.play();
+                    } else {
+                        firingAudio.pause();
+                        firingAudio.currentTime = 0;
+                        firingAudio.play();
+                    }
+                    //LIGHTING
+                    body.style.backgroundImage = "url('backgroundFired.png')";
+                    setTimeout(muzzleFlashSwitchBack, 200);
+                    blackout.style.display = "block";
+                    blackout.style.animation = "fadeOut 2.4s linear";
+                    blackout.style.animationIterationCount = "1";
+                    blackout.style.opacity = "1";
+                    setTimeout(switchPages, 2400);
+
+                    
+                }
+
+                
+            })
+         
+            button.addEventListener("mouseup",()=>{
+                button.classList.remove("active");
+            })
+
+            button.addEventListener("mouseleave", () => {
+                button.classList.remove("active"); // this ensures the button returns to its normal state even if the mouse is still down
+            });
+
+
+            function muzzleFlashSwitchBack() {
+                body.style.backgroundImage = "url('background.png')";        
+            }          
+            function switchPages() {
+                window.location.href="failScreen.html";
+            }
+
+        </script>
+    
+    </div>
+
+
+
+</body>
+
+
+</html>
